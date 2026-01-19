@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookmarker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="./images/Bookmarker.jpg">
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/media.css" />
 </head>
+
 <body>
 
+    <div class="container">
+        <h1>Bookmarker</h1>
+        <hr>
 
-    
+        <h2>
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+        </h2>
+
+        <form>
+            <fieldset class="d-flex flex-column">
+                <div class="site-name">
+                    <label for="BookmarkName" class="form-label mt-4"><i class="fa-solid fa-book-bookmark"></i> Site
+                        Name</label>
+                    <input type="text" class="form-control" id="BookmarkName" aria-describedby="BookmarkName"
+                        placeholder="Bookmark Name" autocomplete="off">
+                </div>
+                <div class="site-url">
+                    <label for="SiteURL" class="form-label mt-4"><i class="fa-solid fa-link"></i> Site URL</label>
+                    <input type="url" class="form-control" id="SiteURL" placeholder="Website URL" autocomplete="off">
+                </div>
+                <button type="button" class="btn btn-warning btn-lg mt-4 w-50 m-auto">Submit</button>
+            </fieldset>
+        </form>
+        <hr>
+
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">Website Name</th>
+                    <th scope="col">Visit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <h5 class="mt-2">1</h5>
+                    </th>
+                    <td>
+                        <h5 class="mt-2">Google</h5>
+                    </td>
+                    <td><button type="button" class="btn btn-success"><i class="fa-solid fa-eye"></i> Visit</button>
+                    </td>
+                    <td><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
+                            Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/index.js"></script>
 </body>
+
 </html>
