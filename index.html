@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="./images/Bookmarker.jpg">
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -16,32 +21,32 @@
 
 <body>
 
-    <div class="container">
-        <h1>Bookmarker</h1>
-        <hr>
+    <div class="container mt-5">
+        <h1 class="text-center fw-bold">Bookmarker</h1>
 
-        <h2>
+        <h2 class="text-center fw-bold">
             <i class="fa-solid fa-bookmark"></i>
-            Bookmark your favorite sites
+            Bookmark Your Favorite Sites
             <i class="fa-solid fa-bookmark"></i>
         </h2>
 
-        <form>
+        <form class="mb-5">
             <fieldset class="d-flex flex-column">
                 <div class="site-name">
-                    <label for="BookmarkName" class="form-label mt-4"><i class="fa-solid fa-book-bookmark"></i> Site
+                    <label for="BookmarkName" class="form-label mt-4 fw-bold"><i class="fa-solid fa-book-bookmark"></i>
+                        Site
                         Name</label>
                     <input type="text" class="form-control" id="BookmarkName" aria-describedby="BookmarkName"
                         placeholder="Bookmark Name" autocomplete="off">
                 </div>
                 <div class="site-url">
-                    <label for="SiteURL" class="form-label mt-4"><i class="fa-solid fa-link"></i> Site URL</label>
+                    <label for="SiteURL" class="form-label mt-4 fw-bold"><i class="fa-solid fa-link"></i> Site
+                        URL</label>
                     <input type="url" class="form-control" id="SiteURL" placeholder="Website URL" autocomplete="off">
                 </div>
-                <button type="button" class="btn btn-warning btn-lg mt-4 w-50 m-auto">Submit</button>
+                <button type="button" class="btn btn-warning btn-lg mt-4 w-50 m-auto fs-5 fw-bold">Submit</button>
             </fieldset>
         </form>
-        <hr>
 
         <table class="table table-hover text-center">
             <thead>
@@ -55,14 +60,15 @@
             <tbody>
                 <tr>
                     <th scope="row">
-                        <h5 class="mt-2">1</h5>
+                        <h5 class="mt-2 fw-bold">1</h5>
                     </th>
                     <td>
-                        <h5 class="mt-2">Google</h5>
+                        <h5 class="mt-2 fw-bold">Google</h5>
                     </td>
-                    <td><button type="button" class="btn btn-success"><i class="fa-solid fa-eye"></i> Visit</button>
+                    <td><button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>
+                            Visit</button>
                     </td>
-                    <td><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
+                    <td><button type="button" class="btn btn-danger fw-bold"><i class="fa-solid fa-trash-can"></i>
                             Delete</button></td>
                 </tr>
             </tbody>

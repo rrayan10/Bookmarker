@@ -6,7 +6,13 @@
     box-sizing: border-box;
 }
 
+*::selection {
+    color: #F5E7C6;
+    background-color: #222222;
+}
+
 body {
-    background-color: #fffffe;
-    color: #0f0e17;
+    color: #222222;
+    background-color: #F5E7C6;
+    font-family: "Poppins", sans-serif;
 }
