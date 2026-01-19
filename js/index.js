@@ -36,7 +36,11 @@ function viewLinks() {
         <tr>
             <th scope="row"><h5 class="mt-2 fw-bold">${index}</h5></th>
             <td><h5 class="mt-2 fw-bold">${links[i].bookmarkName}</h5></td>
-            <td><button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button></td>
+            <td>
+                <a href="${links[i].siteURL}" target="_blank">
+                    <button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button>
+                </a>
+            </td>
             <td><button type="button" class="btn btn-danger fw-bold"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
         </tr>
         `
