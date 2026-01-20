@@ -4,6 +4,10 @@ var siteURL = document.getElementById('siteURL');
 var table = document.getElementById('table');
 var links = [];
 
+if (localStorage.getItem('sites')) {
+    links = JSON.parse(localStorage.getItem('sites'));
+    viewLinks();
+}
 
 // Add
 function addLinks() {
@@ -13,6 +17,8 @@ function addLinks() {
     }
 
     links.push(link)
+    localStorage.setItem('sites', JSON.stringify(links));
+
     clearInputs();
     viewLinks();
 }
@@ -45,7 +51,6 @@ function viewLinks() {
         </tr>
         `
         table.innerHTML = cartona;
-        console.log(links);
     }
 }
 
@@ -53,5 +58,6 @@ function viewLinks() {
 // Delete
 function deleteLinks(linkIndex) {
     links.splice(linkIndex, 1);
+    localStorage.setItem('sites', JSON.stringify(links));
     viewLinks();
 }
