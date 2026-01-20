@@ -36,21 +36,26 @@ function viewLinks() {
     var cartona = ``;
     var index = 0;
 
-    for (var i = 0; i < links.length; i++) {
-        index = index + 1;
-        cartona += `
-        <tr>
-            <th scope="row"><h5 class="mt-2 fw-bold">${index}</h5></th>
-            <td><h5 class="mt-2 fw-bold">${links[i].bookmarkName}</h5></td>
-            <td>
-                <a href="${links[i].siteURL}" target="_blank">
-                    <button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button>
-                </a>
-            </td>
-            <td><button type="button" class="btn btn-danger fw-bold" onclick="deleteLinks(${i})"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
-        </tr>
-        `
-        table.innerHTML = cartona;
+    if (links.length == 0) {
+        table.innerHTML = '';
+    }
+    else {
+        for (var i = 0; i < links.length; i++) {
+            index = index + 1;
+            cartona += `
+            <tr>
+                <th scope="row"><h5 class="mt-2 fw-bold">${index}</h5></th>
+                <td><h5 class="mt-2 fw-bold">${links[i].bookmarkName}</h5></td>
+                <td>
+                    <a href="${links[i].siteURL}" target="_blank">
+                        <button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button>
+                    </a>
+                </td>
+                <td><button type="button" class="btn btn-danger fw-bold" onclick="deleteLinks(${i})"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
+            </tr>
+            `
+            table.innerHTML = cartona;
+        }
     }
 }
 
