@@ -41,9 +41,17 @@ function viewLinks() {
                     <button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button>
                 </a>
             </td>
-            <td><button type="button" class="btn btn-danger fw-bold"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
+            <td><button type="button" class="btn btn-danger fw-bold" onclick="deleteLinks(${i})"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
         </tr>
         `
         table.innerHTML = cartona;
+        console.log(links);
     }
+}
+
+
+// Delete
+function deleteLinks(linkIndex) {
+    links.splice(linkIndex, 1);
+    viewLinks();
 }
