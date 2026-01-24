@@ -29,6 +29,21 @@ function addLinks() {
         clearInputs();
         viewLinks();
     }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Site Name or Url is not valid, Site name must contain at least 3 characters & Site URL must be a valid one"
+
+            // text: `Site Name or Url is not valid, Please follow the rules below:
+            //         Site name must contain at least 3 characters
+            //         Site URL must be a valid one
+            // `
+
+            // text: "Site name must contain at least 3 characters",
+            // text: "Site URL must be a valid one",
+        });
+    }
 }
 
 
