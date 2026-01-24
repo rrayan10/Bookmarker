@@ -3,16 +3,12 @@ var bookmarkName = document.getElementById('bookmarkName');
 var siteURL = document.getElementById('siteURL');
 var table = document.getElementById('table');
 var links = [];
-// Regex (Validation)
-var regex = {
-    bookmarkName: /.{3,20}/,
-    siteURL: /^(https:\/\/|https:\/\/www\.|www\.).+\.(com|net|org)$/
-};
 
 if (localStorage.getItem('sites')) {
     links = JSON.parse(localStorage.getItem('sites'));
     viewLinks();
 }
+
 
 // Add
 function addLinks() {
@@ -76,13 +72,27 @@ function deleteLinks(linkIndex) {
 
 
 // Validation
-function validateInputs(enteredInput) {
-    if (regex[enteredInput.id].test(enteredInput.value)) {
-        enteredInput.classList.remove('is-invalid');
-        enteredInput.classList.add('is-valid');
+function validateBookmarkName(inputValue) {
+    var bookmarkNameRegex = /^.{3,20}$/;
+
+    if (bookmarkNameRegex.test(inputValue)) {
+        bookmarkName.classList.remove('is-invalid');
+        bookmarkName.classList.add('is-valid');
     }
     else {
-        enteredInput.classList.remove('is-valid');
-        enteredInput.classList.add('is-invalid');
+        bookmarkName.classList.remove('is-valid');
+        bookmarkName.classList.add('is-invalid');
+    }
+}
+
+function validateSiteURL(inputValue) {
+    try {
+        new URL(inputValue);
+        siteURL.classList.remove('is-invalid');
+        siteURL.classList.add('is-valid');
+    }
+    catch {
+        siteURL.classList.remove('is-valid');
+        siteURL.classList.add('is-invalid');
     }
 }
