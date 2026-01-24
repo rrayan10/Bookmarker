@@ -3,6 +3,11 @@ var bookmarkName = document.getElementById('bookmarkName');
 var siteURL = document.getElementById('siteURL');
 var table = document.getElementById('table');
 var links = [];
+// Regex (Validation)
+var regex = {
+    bookmarkName: /.{3,20}/,
+    siteURL: /^(https?:\/\/)?((([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})|localhost)(:\d+)?(\/[^\s?#]*)?(\?[^\s#]*)?(#[^\s]*)?$/
+};
 
 if (localStorage.getItem('sites')) {
     links = JSON.parse(localStorage.getItem('sites'));
@@ -12,16 +17,18 @@ if (localStorage.getItem('sites')) {
 
 // Add
 function addLinks() {
-    var link = {
-        bookmarkName: bookmarkName.value,
-        siteURL: siteURL.value
+    if (validateInputs(bookmarkName) & validateInputs(siteURL)) {
+        var link = {
+            bookmarkName: bookmarkName.value,
+            siteURL: siteURL.value
+        }
+
+        links.push(link)
+        localStorage.setItem('sites', JSON.stringify(links));
+
+        clearInputs();
+        viewLinks();
     }
-
-    links.push(link)
-    localStorage.setItem('sites', JSON.stringify(links));
-
-    clearInputs();
-    viewLinks();
 }
 
 
@@ -72,27 +79,15 @@ function deleteLinks(linkIndex) {
 
 
 // Validation
-function validateBookmarkName(inputValue) {
-    var bookmarkNameRegex = /^.{3,20}$/;
-
-    if (bookmarkNameRegex.test(inputValue)) {
-        bookmarkName.classList.remove('is-invalid');
-        bookmarkName.classList.add('is-valid');
+function validateInputs(enteredInput) {
+    if (regex[enteredInput.id].test(enteredInput.value)) {
+        enteredInput.classList.remove('is-invalid');
+        enteredInput.classList.add('is-valid');
+        return true;
     }
     else {
-        bookmarkName.classList.remove('is-valid');
-        bookmarkName.classList.add('is-invalid');
-    }
-}
-
-function validateSiteURL(inputValue) {
-    try {
-        new URL(inputValue);
-        siteURL.classList.remove('is-invalid');
-        siteURL.classList.add('is-valid');
-    }
-    catch {
-        siteURL.classList.remove('is-valid');
-        siteURL.classList.add('is-invalid');
+        enteredInput.classList.remove('is-valid');
+        enteredInput.classList.add('is-invalid');
+        return false;
     }
 }
