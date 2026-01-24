@@ -34,14 +34,6 @@ function addLinks() {
             icon: "error",
             title: "Oops...",
             text: "Site Name or Url is not valid, Site name must contain at least 3 characters & Site URL must be a valid one"
-
-            // text: `Site Name or Url is not valid, Please follow the rules below:
-            //         Site name must contain at least 3 characters
-            //         Site URL must be a valid one
-            // `
-
-            // text: "Site name must contain at least 3 characters",
-            // text: "Site URL must be a valid one",
         });
     }
 }
@@ -71,11 +63,7 @@ function viewLinks() {
             <tr>
                 <th scope="row"><h5 class="mt-2 fw-bold">${index}</h5></th>
                 <td><h5 class="mt-2 fw-bold">${links[i].bookmarkName}</h5></td>
-                <td>
-                    <a href="${links[i].siteURL}" target="_blank">
-                        <button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button>
-                    </a>
-                </td>
+                <td><a href="${links[i].siteURL}" target="_blank"><button type="button" class="btn btn-success fw-bold"><i class="fa-solid fa-eye"></i>Visit</button></a></td>
                 <td><button type="button" class="btn btn-danger fw-bold" onclick="deleteLinks(${i})"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
             </tr>
             `
